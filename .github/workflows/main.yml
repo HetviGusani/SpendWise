@@ -8,6 +8,10 @@ on:
       - main
       - master
       - develop
+
+permissions:
+  contents: write
+
 name: "Build & Release"
 jobs:
   build:
@@ -40,7 +44,7 @@ jobs:
         with:
           artifacts: "build/app/outputs/apk/release/*,build/ios/iphoneos/app.ipa"
           tag: v1.0.${{ github.run_number }}
-          token: ${{ secrets.TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
 
 
 
